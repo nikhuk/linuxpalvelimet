@@ -23,6 +23,8 @@ Ensimäisellä kerralla kokeilin vaihtaa ainoastaan Boot orderia, siten että Li
 
 
 Tämän jälkeen käynnistin koneen uudellleen, ja menin BIOS asetuksiin, jossa vaihdoin asetuksia seuraavanlaisesti: Boot mode= vaihdettiin [Legacy support] modeen. ja Boot priority [Legacy first]
+(kuva BIOS BOOT ORDERISTA)
+
 
 
 
