@@ -2,7 +2,7 @@
 
 ## Käytössä olevat laiteet
 
- - Lenovon L540 kannettava tietokone (Intel i7-9750H CPU, Ram 16GB, Nvidia GTX 1660 Ti.)
+ - Lenovon Legionm Y540 kannettava tietokone (Intel i7-9750H CPU, Ram 16GB, Nvidia GTX 1660 Ti.)
  - Kingston DataTraveler 100 G3 64 GB
 
 ## Harjoituksen tarkoitus
