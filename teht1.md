@@ -31,6 +31,15 @@ Tämän jälkeen käynnistin koneen uudelleen, ja menin BIOS asetuksiin, jossa v
 Kun vaihdoin kyseiset asetukset käyttöön, sain ensimmäisen onnistuneet käynnistyksen. Tässä vaiheessa valitsin valikosta seuraavan vaihtoehdon (Try Xubuntu) ja pääsin sisälle Xubuntu käyttö järjestelmään. Tässä vaiheessa jouduin vielä uudemman kerran valitsemaan "Try Xubuntu". Tämän jälkeen pääsin aloittamaan ns. käytön. 
 Kun aloitin käytön liitin tietokoneeni langattomaan verkkoon, ja aloin etsimään itseäni kiinnostavia kolmea ohjelmaa. Löysin seuraavat ohjelmat VLC, Audacity ja Blender. Latasin VLC ja Audacityn sovelluskaupan kautta, ja blenderin terminaali komennolla sudo apt-get install blender
 
+## Kolmen ohjelman asennus
+Kun aloitin käytön liitin tietokoneeni langattomaan verkkoon, ja aloin etsimään itseäni kiinnostavia kolmea ohjelmaa. Löysin seuraavat ohjelmat VLC, Audacity ja Blender. Latasin VLC ja Audacityn sovelluskaupan kautta, ja blenderin terminaali komennolla sudo apt-get install blender
 
+## Audacity
+![Audacity](https://github.com/nikhuk/linuxpalvelimet/blob/main/audacitygpl2.0+.png?raw=true)
 
+## Blender
+![Blender](https://github.com/nikhuk/linuxpalvelimet/blob/main/blender.png?raw=true)
+
+## VLC
+![VLC](https://github.com/nikhuk/linuxpalvelimet/blob/main/vlc.png?raw=true)
 
