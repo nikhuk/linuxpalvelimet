@@ -11,7 +11,7 @@ Harjoituksen tarkoituksena on luoda usb-muistitikulle Linux livetikku, josta pys
 Tein itse ensimäisenä vaiheena varmuuskopiot Lenovon kannettavan tietokoneen kovalevystä varmuuden vuoksi, myös sen takia koska aikaisemmasta varmuuskopioinnista on kulunut jo tovi.
 Varmuuskopioinnin jälkeen hain Xubuntu 20.04 iso kuvan seuraavalta verkkosivulta (https://xubuntu.org/download#lts).
 Tämän jälkeen latasin seuraavan ohjelman [Rufus 3.13](https://rufus.ie/), jolla luodaan niin sanottu usb-livetikku. Toinen sopiva ohjelma tähän tarkoitukseen olisi ollut UNetboot.
-(rufus kuva)
+(rufus kuva)![rufus](https://github.com/nikhuk/linuxpalvelimet/blob/main/xubuntu20.04.PNG?raw=true)
 Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta livetikun. Avasin Rufus ohjelman, tämän jälkeen siirsin ISO tiedoston Rufus ohjelmaan ja painoin START näppäintä ohjelman alaosasta. Rufus raksutti noin alle 30-40 minuuttia, tämän jälkeen livetikku oli valmis.
 
 Kun livetikku oli valmis käynnistin tietokoneen uudestaan ja siirryin BIOS/UEFI asetuksiin.
