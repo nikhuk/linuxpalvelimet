@@ -20,26 +20,26 @@ Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta 
 Kun livetikku oli valmis käynnistin tietokoneen uudestaan ja siirryin BIOS/UEFI asetuksiin painamalla FN+ F2 näppäimiä. Vaihtaessani BIOS/UEFI asetuksia otin kaikista oletusasetuksista varmuuden vuoksi kuvat puhelimella, jotta olisi helppo palata aikaisempiin asetuksiin.
 Ensimmäisellä kerralla kokeilin vaihtaa ainoastaan Boot orderia, siten että Linpus lite (KingstonDataTraveler 3.0) USB-tikku olisi ensimäisenä. Tämän jälkeen käynnistin koneen uudelleen ja huomasin, että kyseisellä käynnistyksellä oli tullut virhe ACPI ERROR ja ACPI BIOS ERROR. Ruudussa näkyi myös jonkin näköinen graaffinen virheviiva.
 (kuva virheestä)
-![kuvavirheesta](https://github.com/nikhuk/linuxpalvelimet/blob/main/virhekoodit.jpg?raw=true)
+![kuvavirheesta](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/virhekoodit.jpg?raw=true)
 
 
 Tämän jälkeen käynnistin koneen uudelleen, ja menin BIOS asetuksiin, jossa vaihdoin asetuksia seuraavanlaisesti: Boot mode= vaihdettiin [Legacy support] modeen. ja Boot priority [Legacy first]
 (kuva BIOS BOOT ORDERISTA)
 
-![toimivatasetukset](https://github.com/nikhuk/linuxpalvelimet/blob/main/toimivatbiosasetukset.jpg?raw=true)
+![toimivatasetukset](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/toimivatbiosasetukset.jpg?raw=true)
 
 
 Kun vaihdoin kyseiset asetukset käyttöön, sain ensimmäisen onnistuneet käynnistyksen. Tässä vaiheessa valitsin valikosta seuraavan vaihtoehdon (Try Xubuntu) ja pääsin sisälle Xubuntu käyttö järjestelmään. Tässä vaiheessa jouduin vielä uudemman kerran valitsemaan "Try Xubuntu". Tämän jälkeen pääsin aloittamaan ns. käytön. 
 Kun aloitin käytön liitin tietokoneeni langattomaan verkkoon, ja aloin etsimään itseäni kiinnostavia kolmea ohjelmaa. Löysin seuraavat ohjelmat VLC, Audacity ja Blender. Latasin VLC ja Audacityn sovelluskaupan kautta, ja blenderin terminaali komennolla sudo apt-get install blender
 ## Koneen rauta
-![raudantiedot](https://github.com/nikhuk/linuxpalvelimet/blob/main/Screenshot_2021-01-24_16-58-43.png?raw=true)
+![raudantiedot](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/Screenshot_2021-01-24_16-58-43.png?raw=true)
 Ylläolevasta kuvasta selviää käytettävän kannettavan tietokoneen osien tiedot.
 ## Kolmen ohjelman asennus
 Kun aloitin käytön liitin tietokoneeni langattomaan verkkoon, ja aloin etsimään itseäni kiinnostavia kolmea ohjelmaa. Löysin seuraavat ohjelmat VLC, Audacity ja Blender. Latasin VLC ja Audacityn sovelluskaupan kautta, ja blenderin terminaali komennolla sudo apt-get install blender
 
 ## Audacity
 Ohjelman asennus onnistui ilman ongelmia. Testasin kyseisen ohjelman toimivuuden myös äänittämällä hetken mikrofonin kautta ääntä ja toistamalla sitä. Tässä vaiheessa saatiin testattua myös mikrofonin toimivuus, sekä kaiuttimen toimivuus.
-![Audacity](https://github.com/nikhuk/linuxpalvelimet/blob/main/audacitygpl2.0+.png?raw=true)
+![Audacity](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/audacitygpl2.0+.png?raw=true?raw=true)
 
 ## Blender
 Blenderin latauksessa käytin komentoa sudo apt-get install blender, ja sain asennettua kyseisen ohjelman terminaalin kautta. Testasin Blenderin toimivuuden ja se toimi moitteetta.
