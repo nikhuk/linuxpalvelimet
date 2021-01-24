@@ -19,7 +19,7 @@ Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta 
 Kun livetikku oli valmis käynnistin tietokoneen uudestaan ja siirryin BIOS/UEFI asetuksiin.
 Ensimäisellä kerralla kokeilin vaihtaa ainoastaan Boot orderia, siten että Linpus lite (KingstonDataTraveler 3.0) USB-tikku olisi ensimäisenä. Tämän jälkeen käynnistin koneen uudelleen ja huomasin, että kyseisellä käynnistyksellä oli tullut virhe ACPI ERROR ja ACPI BIOS ERROR. Ruudussa näkyi myös jonkin näköinen graaffinen virheviiva.
 (kuva virheestä)
-![enter image description here](https://github.com/nikhuk/linuxpalvelimet/blob/main/virhekoodit.jpg?raw=true)
+![kuvavirheesta](https://github.com/nikhuk/linuxpalvelimet/blob/main/virhekoodit.jpg?raw=true)
 
 
 Tämän jälkeen käynnistin koneen uudellleen, ja menin BIOS asetuksiin, jossa vaihdoin asetuksia seuraavanlaisesti: Boot mode= vaihdettiin [Legacy support] modeen. ja Boot priority [Legacy first]
