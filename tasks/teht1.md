@@ -13,7 +13,7 @@ Tein itse ensimmäisenä vaiheena varmuuskopiot Lenovon kannettavan tietokoneen 
 Varmuuskopioinnin jälkeen hain Xubuntu 20.04 iso kuvan seuraavalta verkkosivulta (https://xubuntu.org/download#lts).
 Tämän jälkeen latasin seuraavan ohjelman [Rufus 3.13](https://rufus.ie/), jolla luodaan niin sanottu usb-livetikku. Toinen sopiva ohjelma tähän tarkoitukseen olisi ollut UNetboot.
 
-![rufus](https://github.com/nikhuk/linuxpalvelimet/blob/main/xubuntu20.04.PNG?raw=true)
+![rufus](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/xubuntu20.04.PNG?raw=true)
 
 Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta livetikun. Avasin Rufus ohjelman, tämän jälkeen siirsin ISO tiedoston Rufus ohjelmaan ja painoin START näppäintä ohjelman alaosasta. Rufus raksutti noin alle 30-40 minuuttia, tämän jälkeen livetikku oli valmis.
 
@@ -43,11 +43,11 @@ Ohjelman asennus onnistui ilman ongelmia. Testasin kyseisen ohjelman toimivuuden
 
 ## Blender
 Blenderin latauksessa käytin komentoa sudo apt-get install blender, ja sain asennettua kyseisen ohjelman terminaalin kautta. Testasin Blenderin toimivuuden ja se toimi moitteetta.
-![Blender](https://github.com/nikhuk/linuxpalvelimet/blob/main/blender.png?raw=true)
+![Blender](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/blender.png?raw=true)
 
 ## VLC
 Asensin kyseisen ohjelman "software" sovelluksen kautta, mistä voi ladata erilaisia sovelluksia suoraan. Asennuksen jälkeen kokeilin, sitä että kyseinen ohjelma toimii moitteetta. VLC toisti testivideon ilman ongelmia.
-![VLC](https://github.com/nikhuk/linuxpalvelimet/blob/main/vlc.png?raw=true)
+![VLC](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/vlc.png?raw=true)
 
 ## Asennettujen ohjelmistojen lisenssit
 Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseinen lisenssi tarkoittaa sitä että ohjelmistoja voidaan käyttää mihin tahansa käyttötarkoitukseen ilmaiseksi, sekä niitä voidaan muuttaa ilman lupaa ja myös vapaasti jakaa.
