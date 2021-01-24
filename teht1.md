@@ -11,7 +11,7 @@ Harjoituksen tarkoituksena on luoda usb-muistitikulle Linux livetikku, josta pys
 Tein itse ensimäisenä vaiheena varmuuskopiot Lenovon kannettavan tietokoneen kovalevystä varmuuden vuoksi, myös sen takia koska aikaisemmasta varmuuskopioinnista on kulunut jo tovi.
 Varmuuskopioinnin jälkeen hain Xubuntu 20.04 iso kuvan seuraavalta verkkosivulta (https://xubuntu.org/download#lts).
 Tämän jälkeen latasin seuraavan ohjelman [Rufus 3.13](https://rufus.ie/), jolla luodaan niin sanottu usb-livetikku. Toinen sopiva ohjelma tähän tarkoitukseen olisi ollut UNetboot.
-(rufus kuva)
+
 ![rufus](https://github.com/nikhuk/linuxpalvelimet/blob/main/xubuntu20.04.PNG?raw=true)
 
 Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta livetikun. Avasin Rufus ohjelman, tämän jälkeen siirsin ISO tiedoston Rufus ohjelmaan ja painoin START näppäintä ohjelman alaosasta. Rufus raksutti noin alle 30-40 minuuttia, tämän jälkeen livetikku oli valmis.
@@ -19,6 +19,9 @@ Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta 
 Kun livetikku oli valmis käynnistin tietokoneen uudestaan ja siirryin BIOS/UEFI asetuksiin.
 Ensimäisellä kerralla kokeilin vaihtaa ainoastaan Boot orderia, siten että Linpus lite (KingstonDataTraveler 3.0) USB-tikku olisi ensimäisenä. Tämän jälkeen käynnistin koneen uudelleen ja huomasin, että kyseisellä käynnistyksellä oli tullut virhe ACPI ERROR ja ACPI BIOS ERROR. Ruudussa näkyi myös jonkin näköinen graaffinen virheviiva.
 (kuva virheestä)
+![enter image description here](https://github.com/nikhuk/linuxpalvelimet/blob/main/virhekoodit.jpg?raw=true)
+
+
 Tämän jälkeen käynnistin koneen uudellleen, ja menin BIOS asetuksiin, jossa vaihdoin asetuksia seuraavanlaisesti: Boot mode= vaihdettiin [Legacy support] modeen. ja Boot priority [Legacy first]
 
 
