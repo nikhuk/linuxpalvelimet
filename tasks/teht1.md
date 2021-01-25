@@ -2,8 +2,13 @@
 
 # Linux livetikun asennus (Harjoitus 1)
 Niko Hukkanen **25.1.2021**
+
 Haaga-Helia ammattikorkeakoulu
-Kurssi: [Linux palvelimet](https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/) by Tero Karvinen
+
+Kurssi: [Linux palvelimet](https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/) 
+
+Kurssin opettaja: Tero Karvinen
+
 ## Käytössä olevat laiteet
 
  - Lenovon Legion Y540 kannettava tietokone (Intel i7-9750H CPU, RAM 16GB, Nvidia GTX 1660 Ti GPU.)
@@ -81,4 +86,3 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseine
  - https://www.videolan.org/legal.html 
  - https://rufus.ie/
  - https://unetbootin.github.io/
- 
