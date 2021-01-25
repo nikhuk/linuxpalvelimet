@@ -64,6 +64,7 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseine
 2. Verkkoselaimet
 3. Kuvanmuokkaus
 4. Videon toistaminen
+
 ## Lähteet
 https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/
 https://xubuntu.org/
