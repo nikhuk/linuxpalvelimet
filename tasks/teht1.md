@@ -16,7 +16,7 @@ Tämän jälkeen latasin seuraavan ohjelman [Rufus 3.13](https://rufus.ie/), jon
 
 ![rufus](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/xubuntu20.04.PNG?raw=true)
 
-Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta livetikun. Avasin Rufus ohjelman, ja tarkistin sen, että kaikki asetukset olivat oikein esim. file system kohdassa oli valittu FAT32 muoto. Tämän jälkeen siirsin ISO tiedoston Rufus ohjelmaan ja painoin START näppäintä ohjelman oikeassa alaosassa. Rufus loi tikun noin alle 30-40 minuuttissa, tämän jälkeen livetikku oli valmis käyttöön.
+Livetikun luonti ohjelmalla oli helppoa ja olin jo aikaisemmin tehnyt Ubuntusta livetikun. Avasin Rufus ohjelman, ja tarkistin sen, että kaikki asetukset olivat oikein esim. file system kohdassa oli valittu FAT32 muoto. Tämän jälkeen siirsin ISO tiedoston Rufus ohjelmaan ja painoin START näppäintä ohjelman oikeassa alaosassa. Rufus loi tikun noin alle 30-40 minuutissa, tämän jälkeen livetikku oli valmis käyttöön.
 
 Kun livetikku oli valmis käynnistin tietokoneen uudestaan ja siirryin BIOS/UEFI asetuksiin painamalla FN+ F2 näppäimiä samaan aikaan. Vaihtaessani BIOS/UEFI asetuksia otin kaikista oletusasetuksista varmuuden vuoksi kuvat puhelimella, jotta olisi helppo palata aikaisempiin toimiviin asetuksiin.
 Ensimmäisellä kerralla kokeilin vaihtaa ainoastaan Boot orderia ja secure bootin poistoa, siten että Linpus lite (KingstonDataTraveler 3.0) USB-tikku olisi ensimmäisenä. Tämän jälkeen käynnistin koneen uudelleen ja huomasin, että kyseisellä käynnistyksellä oli tullut virhe ACPI ERROR ja ACPI BIOS ERROR. Ruudussa näkyi myös jonkin näköinen graaffinen virheviiva.
@@ -66,12 +66,11 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseine
 4. Videon toistaminen
 
 ## Lähteet
-https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/
-https://xubuntu.org/
-https://www.gnu.org/licenses/gpl-3.0.html
-https://www.audacityteam.org/about/
-https://www.blender.org/about/license/
-https://www.videolan.org/legal.html
-https://rufus.ie/
-https://unetbootin.github.io/
 
+ - https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/
+ - https://xubuntu.org/ https://www.gnu.org/licenses/gpl-3.0.html
+ - https://www.audacityteam.org/about/
+ - https://www.blender.org/about/license/
+ - https://www.videolan.org/legal.html 
+ - https://rufus.ie/
+ - https://unetbootin.github.io/
