@@ -57,7 +57,8 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseine
 | Microsoft Word |LibreOffice Writer  |
 | Mozilla Firefox |Mozilla Firefox  |
 | Adobe Photoshop |GIMP  |
-| Windows Media Player |VLC  |
+| Windows Media Player |VLC  
+
 **Käyttötarkoitukset**
 1. Tekstinkäsittelyohjelma
 2. Verkkoselaimet
