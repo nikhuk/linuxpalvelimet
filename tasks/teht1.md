@@ -68,7 +68,8 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseine
 ## Lähteet
 
  - https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/
- - https://xubuntu.org/ https://www.gnu.org/licenses/gpl-3.0.html
+ - https://xubuntu.org/
+ - https://www.gnu.org/licenses/gpl-3.0.html
  - https://www.audacityteam.org/about/
  - https://www.blender.org/about/license/
  - https://www.videolan.org/legal.html 
