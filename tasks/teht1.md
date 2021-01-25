@@ -52,12 +52,17 @@ Asensin kyseisen ohjelman "software" sovelluksen kautta, mistä voi ladata erila
 Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Kyseinen lisenssi tarkoittaa sitä, että ohjelmistoja voidaan käyttää mihin tahansa käyttötarkoitukseen ilmaiseksi, sekä niitä voidaan muuttaa ilman lupaa ja myös vapaasti jakaa.
 
 ## Linux ja Windows ohjelmien vastikkeita toisillensa
-|Windows| Linux |
+|Windows| Linux | 	
 |--|--|
 | Microsoft Word |LibreOffice Writer  |
 | Mozilla Firefox |Mozilla Firefox  |
 | Adobe Photoshop |GIMP  |
 | Windows Media Player |VLC  |
+**Käyttötarkoitukset**
+1. Tekstinkäsittelyohjelma
+2. Verkkoselaimet
+3. Kuvanmuokkaus
+4. Videon toistaminen
 ## Lähteet
 https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/
 https://xubuntu.org/
@@ -67,3 +72,4 @@ https://www.blender.org/about/license/
 https://www.videolan.org/legal.html
 https://rufus.ie/
 https://unetbootin.github.io/
+
