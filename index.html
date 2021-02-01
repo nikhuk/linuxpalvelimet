@@ -86,6 +86,52 @@ Kun sain koneen käynnistettyä, sen jälkeen en huomannut minkäänlaisia muita
 <li class="has-line-data" data-line-start="85" data-line-end="86"><a href="https://www.blender.org/about/license/">https://www.blender.org/about/license/</a></li>
 <li class="has-line-data" data-line-start="86" data-line-end="87"><a href="https://www.videolan.org/legal.html">https://www.videolan.org/legal.html</a></li>
 <li class="has-line-data" data-line-start="87" data-line-end="88"><a href="https://rufus.ie/">https://rufus.ie/</a></li>
-<li class="has-line-data" data-line-start="88" data-line-end="89"><a href="https://unetbootin.github.io/">https://unetbootin.github.io/</a></li>
+<li class="has-line-data" data-line-start="88" data-line-end="90"><a href="https://unetbootin.github.io/">https://unetbootin.github.io/</a></li>
 </ul>
-</body></html>
+<h1 class="code-line" data-line-start=90 data-line-end=91><a id="Komentorivin_kytt_H2_90"></a>Komentorivin käyttö (H2)</h1>
+<p class="has-line-data" data-line-start="91" data-line-end="95">Niko Hukkanen <strong>1.2.2021</strong><br>
+Haaga-Helia ammattikorkeakoulu<br>
+Kurssi: <a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/">Linux palvelimet</a><br>
+Kurssin opettaja: <a href="https://terokarvinen.com/">Tero Karvinen</a></p>
+<h2 class="code-line" data-line-start=96 data-line-end=97><a id="Harjoituksessa_kytetyt_laitteet_ja_tietoa_niist_96"></a>Harjoituksessa käytetyt laitteet ja tietoa niistä</h2>
+<ul>
+<li class="has-line-data" data-line-start="97" data-line-end="98">Lenovon Legion Y540 kannettava tietokone (Intel i7-9750H CPU, RAM 16GB, Nvidia GTX 1660 Ti GPU, OS: Win 10 Home)</li>
+<li class="has-line-data" data-line-start="98" data-line-end="99">Oracle VM VirtualBox 6.1 (Debian 10.7)</li>
+</ul>
+<h2 class="code-line" data-line-start=99 data-line-end=100><a id="Luo_onnistunut_tapahtuma_lokiin_99"></a>Luo onnistunut tapahtuma lokiin</h2>
+<p class="has-line-data" data-line-start="101" data-line-end="102">Käytin komentoa sudo tail -4 /var/log/auth.log. Tämä kyseinen komento listaa 4 viimeisintä tapahtumaa auth.log lokitiedostossa. Täältä kyseisestä lokitiedostosta löytyy tiedot sisäänkirjautumisista, onnistuneista ja epäonnistuneista yrityksistä.</p>
+<p class="has-line-data" data-line-start="103" data-line-end="105">Kuvasta näkyy se, että sessio on suljettu ja sen jälkeen se on avattu sessio käyttäjälle “niko” root oikeuksin. Tämän jälkeen kyseinen sessio on suljettu. Kyseessä on onnistunut kirjautuminen, ja onnistunut root käyttöoikeuksien käyttö.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h2/onnistunut.PNG?raw=true" alt="onnistunut"></p>
+<h2 class="code-line" data-line-start=108 data-line-end=109><a id="Eponnistunut_tapahtuma_lokiin_108"></a>Epäonnistunut tapahtuma lokiin</h2>
+<p class="has-line-data" data-line-start="109" data-line-end="111">Epäonnistuneeksi tapahtumaksi loin epäonnistuneen komennon tehdessä VLC ohjelman asennusta komennolla “sudo apt-get install VLC” Kyseinen komento vaatii järjestelmä käyttäjän salasanan, tässä tapauksessa käyttäjän “niko” salasanan. Tässä kyseisessä tapauksessa kirjoitin salasanan väärin kahdesti. Pääsin tarkastelemaan epäonnistunutta komentoa seuraavalla komennolla “sudo tail -5/var/log/auth.log”. Epäonnistuneet kirjautumiskerrat näkyvät komennon ensimmäisillä 3 rivillä, tämän jälkeen näkyy onnistunut kirjautuminen käyttäjällä “niko”, joka on käyttänyt komentoa “sudo tail -5/var/log/auth.log”. Kyseinen komento listaa 5 viimeisintä tapahtumaa auth.log tiedostosta, ja listaa ne tapahtumat konsoliin. Kaikki lokitiedosto löytyvät seuraavanlaisen polun kautta /var/log/.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h2/failure.PNG?raw=true" alt="failure"></p>
+<h2 class="code-line" data-line-start=111 data-line-end=112><a id="Unelmien_aptget_komento_111"></a>Unelmien apt-get -komento</h2>
+<p class="has-line-data" data-line-start="112" data-line-end="113">Komennolla apt-get install voidaan noutaa useita eri ohjelmia samalla kertaa. Tästä on hyötyä, jos käyttää paljon eri laitteita, tai asentaa uusia käyttöjärjestelmiä. Tämä kyseinen komento noutaa kyseiset ohjelmat. Ennen apt-get komentoa olisi suotavaa käyttää komentoa &quot; apt-get update&quot;, mikä hakee päivitetyn listan paketeista verkosta.</p>
+<p class="has-line-data" data-line-start="114" data-line-end="115">Oma unelmien apt-get komento olisi seuraavanlainen:</p>
+<blockquote>
+<p class="has-line-data" data-line-start="118" data-line-end="119">sudo apt-get update &amp;&amp; sudo apt-get install vlc gimp htop blender -y</p>
+</blockquote>
+<p class="has-line-data" data-line-start="122" data-line-end="123">Kyseisessä komennossa on yhdistetty kaksi eri komentoa: apt-get update ja install merkeillä &amp;&amp;. Lopussa turhille kysymyksille on annettu vastaukseksi kyllä lisäämällä “-y”. komennon perään. Kyseinen komento toimii kokonaisesti ainoastaan, jos ensimmäinen komento on onnistunut.</p>
+<h2 class="code-line" data-line-start=123 data-line-end=124><a id="Kolme_komentorivill_toimivaa_ohjelmaa_123"></a>Kolme komentorivillä toimivaa ohjelmaa</h2>
+<h2 class="code-line" data-line-start=125 data-line-end=126><a id="Vim_125"></a>Vim</h2>
+<p class="has-line-data" data-line-start="126" data-line-end="128">Vim on vapaa tekstieditori, jolla voi ohjelmoida tai käyttää tekstinkäsittelyyn. Vim toimii terminaalissa.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h2/vim.PNG?raw=true" alt="vim"></p>
+<h2 class="code-line" data-line-start=128 data-line-end=129><a id="Neofetch_128"></a>Neofetch</h2>
+<p class="has-line-data" data-line-start="129" data-line-end="131">Kyseinen ohjelma tulostaa tietoa käyttöjärjestelmästä, ohjelmistosta ja raudasta komentoriville. Ohjelman ulkoasua voidaan muokata haluamakseen, mikäli niin haluaa tehdä. Esimerkiksi vasemmalla olevaa kuvaa voidaan muokata, tai vaihtaa kokonaan toisenlaiseksi.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h2/neofetch.PNG?raw=true" alt="neofetch"></p>
+<h2 class="code-line" data-line-start=131 data-line-end=132><a id="Htop_131"></a>Htop</h2>
+<p class="has-line-data" data-line-start="132" data-line-end="134">Ohjelmalla voidaan seurata prosessorin ja muistin käyttöä, sekä sitä mikä ohjelmista käyttää muistia ja prosessoria eniten. Htop listaa kaikki prosessit komentoriviin, ja niiden listausta voi muokata. Ohjelmalla voi suoraan lopettaa ohjelmia painamalla F9+Enter.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h2/htop.PNG?raw=true" alt="htop"></p>
+<h2 class="code-line" data-line-start=134 data-line-end=135><a id="Vapaaehtoinen_bonustehtv_Asenna_SSHdemoni_134"></a>Vapaaehtoinen bonustehtävä: Asenna SSH-demoni</h2>
+<p class="has-line-data" data-line-start="135" data-line-end="136">Päätin jättää tämän bonus tehtävän tekemättä.</p>
+<h2 class="code-line" data-line-start=136 data-line-end=137><a id="Lhteet_136"></a>Lähteet</h2>
+<ul>
+<li class="has-line-data" data-line-start="137" data-line-end="138"><a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h2">https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h2</a></li>
+<li class="has-line-data" data-line-start="138" data-line-end="139"><a href="https://terokarvinen.com/2020/command-line-basics-revisited/">https://terokarvinen.com/2020/command-line-basics-revisited/</a></li>
+<li class="has-line-data" data-line-start="139" data-line-end="140"><a href="https://stackify.com/linux-logs/">https://stackify.com/linux-logs/</a></li>
+<li class="has-line-data" data-line-start="140" data-line-end="141"><a href="https://htop.dev/downloads.html">https://htop.dev/downloads.html</a></li>
+<li class="has-line-data" data-line-start="141" data-line-end="142"><a href="https://www.vim.org/">https://www.vim.org/</a></li>
+<li class="has-line-data" data-line-start="142" data-line-end="143"><a href="https://github.com/dylanaraps/neofetch">https://github.com/dylanaraps/neofetch</a></li>
+</ul>
+</body>
+</html>
