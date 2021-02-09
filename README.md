@@ -89,3 +89,97 @@ Kaikki yllä mainitut kolme ohjelmistoa käyttävät GNU GPL lisenssiä. Tämä 
  - https://www.videolan.org/legal.html 
  - https://rufus.ie/
  - https://unetbootin.github.io/
+
+
+# Apache-weppipalvlin (H3)
+
+Niko Hukkanen **8.2.2021**
+
+Haaga-Helia ammattikorkeakoulu
+
+Kurssi: [Linux palvelimet](https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/)
+
+Kurssin opettaja: [Tero Karvinen](https://terokarvinen.com/)
+
+## Apachen asentaminen
+
+Aloitin asentamisen kirjoittamalla sudo apt-get update, ja tämän jälkeen ajoin varsinaisen asennus komennon sudo apt-get install apache2 -y.  Asennuksen jälkeen huomasin, ettei Apache ollut lähteny toimimaan halutulla tavalla. Firefox ilmoitti seuraavanlaisesti, että kyseinen sivusto ei ole saatavissa.
+
+![unable](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/localhostx.PNG?raw=true)
+
+Syy: Apache ei ollut käynnistynyt, joten tässä vaiheessa se piti käynnistää uudelleen, jotta se lähti toimimaan. Tähän käytin komentoa $sudo systemctl restart apache2.
+
+Tämän jälkeen sain Apachen toimimaan. Tässä vaiheessa pääsin kokeilemaan Apachea selaimella osoitteesta http://localhost. Apache näytti lähteneen toimimaan uudelleenkäynnistyksen jälkeen.
+
+![apache](https://github.com/nikhuk/linuxpalvelimet/blob/adc4c257e7997e46ecdf4a14a5f4202fef34b162/assets/h3/apache.PNG?raw=true)
+
+Seuraavaksi tein kansion polkuun /home/niko/public_html komennolla $ mkdir public_html ja kyseiseen paikkaa myös index.html tiedoston.
+![indexhtml](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/nikos.PNG?raw=true)
+
+
+## Surffaa oman palvelimesi weppisivuja. Etsi Apachen lokista esimerkki onnistuneesta (200 ok) sivulatauksesta ja epäonnistuneesta (esim 404 not found) sivulatauksesta. Analysoi rivit.
+Kuvan koodiriveiltä löytyy samankaltainen loppuosa, josta selviää käytetty selain ja tietoa siitä.
+Koodin loppuosasta selviää tietoa käytetystä "user agentista". Tästä selviää se, että käytössä on Linux käyttöjärjestelmä, sekä Firefox selain v. 78.0.
+
+Kuvan ensimmäisellä rivillä näkyy virhe **404**.
+
+Virhe johtuu kirjoitusvirheestä, jonka loin itse hakemalla sivustoa localhost/~nikoo/ firefoxillla. Kyseistä sivustoa ei ole olemassa. Tämän vuoksi se ilmoittaa, ettei kyseistä sivustoa löydy.
+
+![apachelog](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/apacheloki.PNG?raw=true)
+
+**304 ( Not modified)** Sivusto ei ole muuttunut viime latauskerran jälkeen ja se löytyy välimuistista, joten sitä ei tarvitse ladata uudelleen.
+
+**200 (OK)**
+
+Kolmannella rivillä näkyy onnistunut kerta.
+
+## Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.
+
+![apachectl2](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/apache2ctl%20configtest.PNG?raw=true)
+
+Kun kirjoitin komentoriville seuraavan komennon sudo apache2ctl configtest, sain seuraavan ilmoituksen.
+
+> `AH00558: Could not reliably determine the server's fully qualified domain name`
+
+Muuten config test ilmoitti "Syntax OK". Lisää tietoa virheestä löysin sivustolta [DigitalOcean](https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name).
+## Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.
+Aikaisemmassa kohdassa sain aikaan seuraavat HTTP status:ta
+ **200**
+Tämän sain aikaan siirtymällä localhost sivustolle tai erilliselle http://locahost/~niko sivustolle.
+**304**
+Tämä tapahtui siksi, koska olin jo aikaisemmin käynyt sivustolla, eikä sitä ollut päivitetty sen jälkeen. Niin kyseinen sivusto löytyi jo välimuistista.
+**404**
+Tämän virheen sain itse aiheutettua siten, että kirjoitin virheellisen URL-osoitteen, jota ei ole olemassa tällä palvelimella. http://locahost/~nikoo
+![404](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/404.PNG?raw=true)
+
+
+
+## Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.
+Käytin tehdessäni tätä muutosta [Teron ohjetta](http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=) vuodelta 2016.
+Aloitin luomalla VirtualHost:in ja annoin sille nimeksi niko.conf.  Paikkaan /etc/apache2/sites-available/niko.conf .
+Tämän jälkeen editoin kyseistä tiedostoa seuraavanlaisesti: 
+
+     /etc/apache2/sites-enabled/niko.conf
+        <VirtualHost *:80>
+         DocumentRoot /home/niko/public_html/
+         <Directory /home/niko/public_html/>
+           Require all granted
+         </Directory>
+        </VirtualHost>
+
+Seuraavaksi otin pois käytöstä aikaisemman default Virtualhostin komennolla sudo a2dissite 000-default.conf. 
+Tämän jälkeen otin käyttöön uuden komennolla sudo a2ensite niko.conf.
+Näiden komentojen jälkeen käynnistin Apachen uudelleen komennolla sudo service apache2 restart.
+
+![valmis](https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/vhost2.PNG?raw=true)
+
+Lopuksi muokkasin index.html sivua lyhyesti ja validoin sen osoitteessa. [http://validator.w3.org](http://validator.w3.org/). 
+Muokattava index.html löytyy polusta /home/niko/public_html/index.html.
+
+## Lähteet
+
+ - https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h3
+ - http://terokarvinen.com/2008/05/02/install-apache-web-server-on-ubuntu-4/index.html?fromSearch=
+ - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
+ - https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name
+ - http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=
