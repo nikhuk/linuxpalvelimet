@@ -132,6 +132,79 @@ Kurssin opettaja: <a href="https://terokarvinen.com/">Tero Karvinen</a></p>
 <li class="has-line-data" data-line-start="140" data-line-end="141"><a href="https://htop.dev/downloads.html">https://htop.dev/downloads.html</a></li>
 <li class="has-line-data" data-line-start="141" data-line-end="142"><a href="https://www.vim.org/">https://www.vim.org/</a></li>
 <li class="has-line-data" data-line-start="142" data-line-end="143"><a href="https://github.com/dylanaraps/neofetch">https://github.com/dylanaraps/neofetch</a></li>
+<li class="has-line-data" data-line-start="143" data-line-end="144"></li>
 </ul>
-</body>
-</html>
+<h1 class="code-line" data-line-start=144 data-line-end=145><a id="Apacheweppipalvlin_H3_144"></a>Apache-weppipalvlin (H3)</h1>
+<p class="has-line-data" data-line-start="146" data-line-end="147">Niko Hukkanen <strong>8.2.2021</strong></p>
+<p class="has-line-data" data-line-start="148" data-line-end="149">Haaga-Helia ammattikorkeakoulu</p>
+<p class="has-line-data" data-line-start="150" data-line-end="151">Kurssi: <a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/">Linux palvelimet</a></p>
+<p class="has-line-data" data-line-start="152" data-line-end="153">Kurssin opettaja: <a href="https://terokarvinen.com/">Tero Karvinen</a></p>
+<h2 class="code-line" data-line-start=153 data-line-end=154><a id="Harjoituksessa_kytetyt_laitteet_ja_tietoa_niist_153"></a>Harjoituksessa käytetyt laitteet ja tietoa niistä</h2>
+<ul>
+<li class="has-line-data" data-line-start="155" data-line-end="157">
+<p class="has-line-data" data-line-start="155" data-line-end="156">Lenovon Legion Y540 kannettava tietokone (Intel i7-9750H CPU, RAM 16GB, Nvidia GTX 1660 Ti GPU, OS: Win 10 Home)</p>
+</li>
+<li class="has-line-data" data-line-start="157" data-line-end="159">
+<p class="has-line-data" data-line-start="157" data-line-end="158">Oracle VM VirtualBox 6.1 (Debian 10.7)</p>
+</li>
+</ul>
+<h2 class="code-line" data-line-start=159 data-line-end=160><a id="Apachen_asentaminen_159"></a>Apachen asentaminen</h2>
+<p class="has-line-data" data-line-start="161" data-line-end="162">Aloitin asentamisen kirjoittamalla sudo apt-get update, ja tämän jälkeen ajoin varsinaisen asennus komennon sudo apt-get install apache2 -y. Asennuksen jälkeen huomasin, ettei Apache ollut lähteny toimimaan halutulla tavalla. Firefox ilmoitti seuraavanlaisesti, että kyseinen sivusto ei ole saatavissa.</p>
+<p class="has-line-data" data-line-start="163" data-line-end="164"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/localhostx.PNG?raw=true" alt="unable"></p>
+<p class="has-line-data" data-line-start="165" data-line-end="166">Syy: Apache ei ollut käynnistynyt, joten tässä vaiheessa se piti käynnistää uudelleen, jotta se lähti toimimaan. Tähän käytin komentoa $sudo systemctl restart apache2.</p>
+<p class="has-line-data" data-line-start="167" data-line-end="168">Tämän jälkeen sain Apachen toimimaan. Tässä vaiheessa pääsin kokeilemaan Apachea selaimella osoitteesta <a href="http://localhost">http://localhost</a>. Apache näytti lähteneen toimimaan uudelleenkäynnistyksen jälkeen.</p>
+<p class="has-line-data" data-line-start="169" data-line-end="170"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/adc4c257e7997e46ecdf4a14a5f4202fef34b162/assets/h3/apache.PNG?raw=true" alt="apache"></p>
+<p class="has-line-data" data-line-start="171" data-line-end="173">Seuraavaksi tein kansion polkuun /home/niko/public_html komennolla $ mkdir public_html ja kyseiseen paikkaa myös index.html tiedoston.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/nikos.PNG?raw=true" alt="indexhtml"></p>
+<h2 class="code-line" data-line-start=175 data-line-end=176><a id="Surffaa_oman_palvelimesi_weppisivuja_Etsi_Apachen_lokista_esimerkki_onnistuneesta_200_ok_sivulatauksesta_ja_eponnistuneesta_esim_404_not_found_sivulatauksesta_Analysoi_rivit_175"></a>Surffaa oman palvelimesi weppisivuja. Etsi Apachen lokista esimerkki onnistuneesta (200 ok) sivulatauksesta ja epäonnistuneesta (esim 404 not found) sivulatauksesta. Analysoi rivit.</h2>
+<p class="has-line-data" data-line-start="176" data-line-end="178">Kuvan koodiriveiltä löytyy samankaltainen loppuosa, josta selviää käytetty selain ja tietoa siitä.<br>
+Koodin loppuosasta selviää tietoa käytetystä “user agentista”. Tästä selviää se, että käytössä on Linux käyttöjärjestelmä, sekä Firefox selain v. 78.0.</p>
+<p class="has-line-data" data-line-start="179" data-line-end="180">Kuvan ensimmäisellä rivillä näkyy virhe <strong>404</strong>.</p>
+<p class="has-line-data" data-line-start="181" data-line-end="182">Virhe johtuu kirjoitusvirheestä, jonka loin itse hakemalla sivustoa localhost/~nikoo/ firefoxillla. Kyseistä sivustoa ei ole olemassa. Tämän vuoksi se ilmoittaa, ettei kyseistä sivustoa löydy.</p>
+<p class="has-line-data" data-line-start="183" data-line-end="184"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/apacheloki.PNG?raw=true" alt="apachelog"></p>
+<p class="has-line-data" data-line-start="185" data-line-end="186"><strong>304 ( Not modified)</strong> Sivusto ei ole muuttunut viime latauskerran jälkeen ja se löytyy välimuistista, joten sitä ei tarvitse ladata uudelleen.</p>
+<p class="has-line-data" data-line-start="187" data-line-end="188"><strong>200 (OK)</strong></p>
+<p class="has-line-data" data-line-start="189" data-line-end="190">Kolmannella rivillä näkyy onnistunut kerta.</p>
+<h2 class="code-line" data-line-start=191 data-line-end=192><a id="Tee_virhe_johonkin_Apachen_asetustiedostoon_etsi_ja_analysoi_tuo_rivi_Etsimiseen_sopivat_esimerkiksi_Apachen_omat_lokit_syslog_sek_apache2ctl_configtest_191"></a>Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.</h2>
+<p class="has-line-data" data-line-start="193" data-line-end="194"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/apache2ctl%20configtest.PNG?raw=true" alt="apachectl2"></p>
+<p class="has-line-data" data-line-start="195" data-line-end="196">Kun kirjoitin komentoriville seuraavan komennon sudo apache2ctl configtest, sain seuraavan ilmoituksen.</p>
+<blockquote>
+<p class="has-line-data" data-line-start="197" data-line-end="198"><code>AH00558: Could not reliably determine the server's fully qualified domain name</code></p>
+</blockquote>
+<p class="has-line-data" data-line-start="199" data-line-end="200">Muuten config test ilmoitti “Syntax OK”. Lisää tietoa virheestä löysin sivustolta <a href="https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name">DigitalOcean</a>. Kyseinen virhe ei vaikuta huomattavasti Apachen toimintaan, ja sen voi helposti korjata muokkaamalla domain nimeä.</p>
+<h2 class="code-line" data-line-start=200 data-line-end=201><a id="Kuinka_monta_eri_HTTP_Statusta_200_404_500_saat_aiheutettua_lokeihin_Selit_miten_aiheutit_tilanteet_ja_analysoi_yksi_rivi_kustakin_statuksesta_200"></a>Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.</h2>
+<p class="has-line-data" data-line-start="201" data-line-end="209">Aikaisemmassa kohdassa sain aikaan seuraavat HTTP status:ta<br>
+<strong>200</strong><br>
+Tämän sain aikaan siirtymällä localhost sivustolle tai erilliselle <a href="http://locahost/~niko">http://locahost/~niko</a> sivustolle.<br>
+<strong>304</strong><br>
+Tämä tapahtui siksi, koska olin jo aikaisemmin käynyt sivustolla, eikä sitä ollut päivitetty sen jälkeen. Niin kyseinen sivusto löytyi jo välimuistista.<br>
+<strong>404</strong><br>
+Tämän virheen sain itse aiheutettua siten, että kirjoitin virheellisen URL-osoitteen, jota ei ole olemassa tällä palvelimella. <a href="http://locahost/~nikoo">http://locahost/~nikoo</a><br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/404.PNG?raw=true" alt="404"></p>
+<h2 class="code-line" data-line-start=212 data-line-end=213><a id="Vaihda_Apachen_oletussivu_Eli_laita_palvelimen_etusivulla_ilman_tilde_nkyv_sivu_niin_ett_alkuperinen_on_jonkun_kyttjn_kotihakemistossa_ja_voit_muokata_sit_ilman_pkyttjn_oikeuksia_212"></a>Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.</h2>
+<p class="has-line-data" data-line-start="213" data-line-end="216">Käytin tehdessäni tätä muutosta <a href="http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=">Teron ohjetta</a> vuodelta 2016.<br>
+Aloitin luomalla VirtualHost:in ja annoin sille nimeksi niko.conf. Paikkaan /etc/apache2/sites-available/niko.conf .<br>
+Tämän jälkeen editoin kyseistä tiedostoa seuraavanlaisesti:</p>
+<pre><code> /etc/apache2/sites-enabled/niko.conf
+    &lt;VirtualHost *:80&gt;
+     DocumentRoot /home/niko/public_html/
+     &lt;Directory /home/niko/public_html/&gt;
+       Require all granted
+     &lt;/Directory&gt;
+    &lt;/VirtualHost&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="225" data-line-end="228">Seuraavaksi otin pois käytöstä aikaisemman default Virtualhostin komennolla sudo a2dissite 000-default.conf.<br>
+Tämän jälkeen otin käyttöön uuden komennolla sudo a2ensite niko.conf.<br>
+Näiden komentojen jälkeen käynnistin Apachen uudelleen komennolla sudo service apache2 restart.</p>
+<p class="has-line-data" data-line-start="229" data-line-end="230"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h3/vhost2.PNG?raw=true" alt="valmis"></p>
+<p class="has-line-data" data-line-start="231" data-line-end="233">Lopuksi muokkasin index.html sivua lyhyesti ja validoin sen osoitteessa. <a href="https://validator.w3.org/">http://validator.w3.org</a>.<br>
+Muokattava index.html löytyy polusta /home/niko/public_html/index.html.</p>
+<h2 class="code-line" data-line-start=234 data-line-end=235><a id="Lhteet_234"></a>Lähteet</h2>
+<ul>
+<li class="has-line-data" data-line-start="236" data-line-end="237"><a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h3">https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h3</a></li>
+<li class="has-line-data" data-line-start="237" data-line-end="238"><a href="http://terokarvinen.com/2008/05/02/install-apache-web-server-on-ubuntu-4/index.html?fromSearch=">http://terokarvinen.com/2008/05/02/install-apache-web-server-on-ubuntu-4/index.html?fromSearch=</a></li>
+<li class="has-line-data" data-line-start="238" data-line-end="239"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304">https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304</a></li>
+<li class="has-line-data" data-line-start="239" data-line-end="240"><a href="https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name">https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name</a></li>
+<li class="has-line-data" data-line-start="240" data-line-end="241"><a href="http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=">http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=</a></li>
+</ul>
+</body></html>
