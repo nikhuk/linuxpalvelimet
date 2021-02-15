@@ -207,4 +207,138 @@ Muokattava index.html löytyy polusta /home/niko/public_html/index.html.</p>
 <li class="has-line-data" data-line-start="239" data-line-end="240"><a href="https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name">https://www.digitalocean.com/community/tutorials/apache-configuration-error-ah00558-could-not-reliably-determine-the-server-s-fully-qualified-domain-name</a></li>
 <li class="has-line-data" data-line-start="240" data-line-end="241"><a href="http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=">http://terokarvinen.com/2016/new-default-website-with-apache2-show-your-homepage-at-top-of-example-com-no-tilde/index.html?fromSearch=</a></li>
 </ul>
+<h1 class="code-line" data-line-start=1 data-line-end=2 ><a id="Julkisen_palvelimen_ja_nimen_vuokraaminen_H4_1"></a>Julkisen palvelimen ja nimen vuokraaminen (H4)</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="6">Niko Hukkanen <strong>15.2.2021</strong><br>
+Haaga-Helia ammattikorkeakoulu<br>
+Kurssi: <a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/">Linux palvelimet</a><br>
+Kurssin opettaja: <a href="https://terokarvinen.com/">Tero Karvinen</a></p>
+<h2 class="code-line" data-line-start=7 data-line-end=8 ><a id="Harjoituksessa_kytetyt_laitteet_ja_tietoa_niist_7"></a>Harjoituksessa käytetyt laitteet ja tietoa niistä</h2>
+<ul>
+<li class="has-line-data" data-line-start="8" data-line-end="9">Lenovon Legion Y540 kannettava tietokone (Intel i7-9750H CPU, RAM 16GB, Nvidia GTX 1660 Ti GPU, OS: Win 10 Home)</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">Oracle VM VirtualBox 6.1 (Debian 10.7)</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">DigitalOcean Debian 10 x64 Droplet</li>
+</ul>
+<h2 class="code-line" data-line-start=11 data-line-end=12 ><a id="Virtuaalipalvelimen_vuokraus_11"></a>Virtuaalipalvelimen vuokraus</h2>
+<p class="has-line-data" data-line-start="12" data-line-end="23">Käsittelimme virtuaalipalvelimen vuokrausta tunnilla, ja päätin itse hankkia DigitalOcean:ista virtuaalipalvelimen. Hankin kyseisen palvelimen tästä paikasta, koska sitä suositeltiin ja sain sen edullisesti.<br>
+Palvelun käyttöönotto sujui erittäin helposti, kirjauduin sisään omilla GitHub tunnuksilla, sen jälkeen lisäsin DigitalOcean käyttäjätilille luottokortin. Tämän jälkeen pystyin suoraan vuokraamaan “Dropletin” kyseisestä palvelusta.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/digitalocean.PNG?raw=true" alt="digitalocean"><br>
+Hallintasivuilta löytyi paljon eri vaihtoehtoja siihen, että minkälaisen virtuaalipalvelimen voisi vuokrata. Päädyin itse vuokraamaan halvimman mahdollisimman virtuaalipalvelimen osan eli “Dropletin”. Valitsin kyseisen konfiguraation, koska en tarvitse palvelimelta paljon tehoa, kun lähtökohtaisesti siellä tulee vain pyörimään testisivusto tätä kurssia varten.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/droplet.PNG?raw=true" alt="droplet"><br>
+Kyseinen Droplet maksaa 5 dollaria kuukaudessa, omasta mielestäni se on hyvin edullinen ja riittävä omiin tarpeisiini. Kyseisen dropletin ominaisuuksia on mahdollista muokata vuokraamisen jälkeen. Esimerkiksi virtuaalipalvelimelle voidaan lisätä lisää muistia, tehoa tai muita ominaisuuksia.<br>
+Käyttöjärjestelmäksi virtuaalipalvelimelle valitsin Debian 10, koska olen käyttänyt kyseistä käyttöjärjestelmää tällä kurssilla ja se tuntui luontevalta.<br>
+Virtuaalipalvelimen sijainniksi valitsin itseäni lähimmän, ja Euroopan unionin sisällä sijaitsevan paikan eli Saksa, Frankfurt.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/droplet2.PNG?raw=true" alt="droplet2"><br>
+Kirjautumisvaihtoehdoksi valitsin salasanan. Droplettien määräksi valitsin 1, ja nimesin sen “nikonpalvelimeksi”. En valinnut dropletille mitään lisäasetuksia sitä tehdessäni, paitsi monitoring lisäasetuksen. Dropletin lisäasetuksia voi muokata jälkikäteen myös hallintasivustolta.<br>
+Kun olin tarkastanut asetukset oikeiksi valitsin “Create Droplet” tässä menin muutama minuutti, ja tämän jälkeen pystyin ottamaan yhteyden kyseiseen palvelimeen.</p>
+<h2 class="code-line" data-line-start=23 data-line-end=24 ><a id="Yhteydenotto_virtuaalipalvelimeen_ja_asetusten_mrittminen_23"></a>Yhteydenotto virtuaalipalvelimeen ja asetusten määrittäminen</h2>
+<p class="has-line-data" data-line-start="24" data-line-end="27">Käytin yhteydenotossa ja asetusten määrittämisessä Tero Karvisen <a href="http://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/">ohjetta</a> apuna.<br>
+Yhteydenotto ensimmäisellä käyttökerralla toimi seuraavanlaisesti:<br>
+Otin yhteyden palvelimeen Debian 10 virtuaalikoneella terminaalin kautta komennolla <code>$ ssh root@167.71.39.4</code></p>
+<p class="has-line-data" data-line-start="28" data-line-end="29"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/ssh%20yhteys.PNG?raw=true" alt="ssh"></p>
+<p class="has-line-data" data-line-start="30" data-line-end="34">Tämän jälkeen ajoin komennon <strong>sudo apt-get update</strong>, jotta saatiin päivitetty lista paketeista.<br>
+Sitten haettiin palomuuri komennolla <strong>sudo apt-get install ufw</strong>.<br>
+Seuraavaksi annettiin komento <strong>sudo ufw allow 22/tcp</strong>, jolla tehtiin reikä palomuuriin SSH-yhteyttä varten.<br>
+Kun reikä oli tehty SSH-yhteydelle otettiin palomuuri käyttöön komennolla <strong>sudo ufw enable</strong></p>
+<p class="has-line-data" data-line-start="35" data-line-end="36"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/palomuuri.PNG?raw=true" alt="palomuuri"></p>
+<p class="has-line-data" data-line-start="37" data-line-end="39">Tämän jälkeen luotiin uusi sudo käyttäjä, jotta root oikeuksia ei tarvitse enää jatkossa käyttää.<br>
+Käyttäjän luominen tapahtui seuraavilla komennoilla.</p>
+<pre><code>sudo adduser niko
+sudo adduser niko sudo
+sudo adduser niko adm
+</code></pre>
+<p class="has-line-data" data-line-start="43" data-line-end="47">Ensimmäisen komennon jälkeen asetettiin käyttäjälle “niko” salasana ja mahdolliset lisätiedot kyseiseen käyttäjään.<br>
+Alemmilla komennoilla annettiin tälle “niko” käyttäjälle sudo oikeudet, sekä admin oikeudet.<br>
+Tämän jälkeen testasin uuden käyttäjän toimivuutta avaamalla uuden SSH-yhteyden toisella terminaalilla.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/uusikauttaja.PNG?raw=true" alt="uusikauttaja"></p>
+<p class="has-line-data" data-line-start="48" data-line-end="50">Sain juuri luodulla käyttäjällä onnistuneen SSH-yhteyden.<br>
+Tämän jälkeen palasin vielä root käyttäjälle tekemään päivitykset.</p>
+<pre><code>sudo apt-get upgrade
+sudo apt-get update
+</code></pre>
+<p class="has-line-data" data-line-start="54" data-line-end="55">Uuden käyttäjän käyttöönoton jälkeen lukitsin root käyttäjän komennolla</p>
+<pre><code>sudo usermod --lock root
+</code></pre>
+<p class="has-line-data" data-line-start="57" data-line-end="58">Tämän jälkeen suljettiin root sisään kirjautuminen SSH yhteydellä muokkaamalla config tiedostoa.</p>
+<pre><code> sudoedit /etc/ssh/sshd_config
+    # ...
+    PermitRootLogin no
+    # ...
+ sudo service ssh restart
+</code></pre>
+<p class="has-line-data" data-line-start="65" data-line-end="66"><img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/rootdisabled.PNG?raw=true" alt="rootdisabled"></p>
+<p class="has-line-data" data-line-start="67" data-line-end="68">Kun yritin uudelleen kirjautua muokattuani aikaisempaa tiedostoa, palvelin ilmoittaa nyt “permisssion denied”. Joten root on nyt lukossa.</p>
+<h2 class="code-line" data-line-start=69 data-line-end=70 ><a id="Apachen_kyttnotto_virtuaalipalvelimella_69"></a>Apachen käyttöönotto virtuaalipalvelimella</h2>
+<p class="has-line-data" data-line-start="70" data-line-end="71">Apachen asennus tapahtui komennolla.</p>
+<pre><code>sudo apt-get install apache2 -y
+</code></pre>
+<p class="has-line-data" data-line-start="73" data-line-end="74">Tämän jälkeen piti tehdä palomuurin reikä apachen käyttöön ja se tapahtui seuraavalla komennolla.</p>
+<pre><code>sudo ufw allow 80/tcp
+</code></pre>
+<p class="has-line-data" data-line-start="76" data-line-end="80">Nyt pystyin kokeilemaan apachen toimivuutta kirjoittamalla Firefoxiin virtuaalipalvelimeni ip-osoitteen 167.71.39.4 .<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/apacheworks.PNG?raw=true" alt="works"><br>
+Tässä vaiheessa kun apache oli lähtenyt toimimaan, aloitin omien sivujeni teon.<br>
+Komentorivillä ajoin seuraavat komennot</p>
+<pre><code>sudo a2enmod userdir
+sudo systemctl restart apache2
+</code></pre>
+<p class="has-line-data" data-line-start="83" data-line-end="86">Ensimmäinen komento ottaa sallii käyttäjien kansiot. Toinen komento käynnistää apachen uudelleen.<br>
+Kun apache oli käynnistynyt uudelleen loin käyttäjän “niko” hakemistoon kansion “public_html” komennolla <strong>mkdir public_html</strong>. Kun olin luonut kansion, tein kyseiseen polkuun tiedoston index.html ja editoin sitä nanolla komennolla <strong>nano index.html</strong>.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/apacheindex.PNG?raw=true" alt="apacheindex"></p>
+<h2 class="code-line" data-line-start=86 data-line-end=87 ><a id="Domain_hankinta_86"></a>Domain hankinta</h2>
+<p class="has-line-data" data-line-start="87" data-line-end="93">Hankin domainin osoitteesta <a href="http://namecheap.com">namecheap.com</a>. Sain GitHub Education paketin avulla ilmaisen domainin vuodeksi kyseisestä osoitteesta. Domain osoitteeksi sain: <a href="http://nikohukkanen.me">nikohukkanen.me</a>.<br>
+Jotta sain kyseisen osoitteen käyttöön jouduin kirjautumaan GitHub tunnuksillani, ja luomaan uuden käyttäjän namecheap sivustolle. Käyttäjää luodessa jouduin antamaan perustietoja itsestäni.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/domains.PNG?raw=true" alt="domain"><br>
+Tämän jälkeen olin saanut namecheap palvelun käyttööni siirryin tarkastelemaan domain osoitettani ja sen asetuksia. Advanced DNS kohdasta poistin aikaisemmat lisäykset, ja lisäsin sinne kaksi uutta tietuetta, jotka ohjaavat virtuaalipalvelimeni IP-osoitteeseen.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/dnssetup.PNG?raw=true" alt="dnssetup"><br>
+Noin alle 10 minuutin päästä asetusten muokkaamisesta pääsin virtuaalipalvelimeni apache sivulle, kun kirjoitin selaimeen <a href="http://nikohukkanen.me">nikohukkanen.me</a> tai <a href="http://www.nikohukkanen.me">www.nikohukkanen.me</a>.</p>
+<h2 class="code-line" data-line-start=94 data-line-end=95 ><a id="Apachen_loppustmiset_94"></a>Apachen loppusäätämiset</h2>
+<p class="has-line-data" data-line-start="95" data-line-end="99">Lopuksi otin käyttööni apachessa virtual hostin DigitalOceanin ohjeen mukaan.<br>
+Ajoin seuraavat komennot:<br>
+Loin kansion sivustolleni<br>
+<strong>sudo mkdir -p /var/www/nikohukkanen.me</strong></p>
+<pre><code>nano /var/www/nikohukkanen.me/index.html
+</code></pre>
+<p class="has-line-data" data-line-start="101" data-line-end="104">Loin ja muokkasin index.html sivun sivustolleni.<br>
+Seuraavaksi loin config tiedoston virtual palvelimelleni komennolla ja tallensin sen.<br>
+<strong>sudo nano /etc/apache2/sites-available/nikohukkanen.me.conf</strong></p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    ServerName nikohukkanen.me
+    ServerAlias www.nikohukkanen.me
+    DocumentRoot /var/www/nikohukkanen.me
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="114" data-line-end="115">Tämän jälkeen otin käyttöön kyseisen tiedoston käyttöön komennolla:</p>
+<pre><code>sudo a2ensite nikohukkanen.me.conf
+</code></pre>
+<p class="has-line-data" data-line-start="117" data-line-end="118">Seuraavaksi poistin käytöstä vanhan default sivuston komennolla:</p>
+<pre><code>sudo a2dissite 000-default.conf
+</code></pre>
+<p class="has-line-data" data-line-start="120" data-line-end="121">Lopuksi Apache käynnistettiin uudelleen komennolla</p>
+<pre><code>sudo systemctl restart apache2
+</code></pre>
+<p class="has-line-data" data-line-start="125" data-line-end="128">Näiden jälkeen testasin sivuston toimivuuden seuraavilla URL-osoitteilla: <a href="http://nikohukkanen.me">nikohukkanen.me</a> ja <a href="http://www.nikohukkanen.me">www.nikohukkanen.me</a><br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/apachevhost.PNG?raw=true" alt="vhost"><br>
+Sain molemmat latautumaan halutulla tavalla.</p>
+<h2 class="code-line" data-line-start=128 data-line-end=129 ><a id="Murtautumisyrityksi_128"></a>Murtautumisyrityksiä</h2>
+<p class="has-line-data" data-line-start="129" data-line-end="136">Siirryin seuramaan murtautumisyrityksiä auth.log loki tiedostoon komennolla tail -F auth.log. Tässä vaiheessa hieman ihmettelin sitä, kuinka monesta eri IP-osoitteesta on oikein yritetty murtautua. Selkeästi murtautujat yrittävät käyttää jotain hyvin yleisiä käytössä olevia tunnuksia, kuten esimerkiksi “root”.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/authlogi.PNG?raw=true" alt="authlog"><br>
+Päätin vielä lähteä selvittämään paria IP-osoitetta, mistä tämänlainen liikenne voisi tulla juuri avaamalleni palvelimelle?<br>
+Käytin tähän verkosta löytyvää IP-lookup palvelua <a href="https://whatismyipaddress.com/ip-lookup">täältä</a>.  Kyseisen verkkosivuston mukaan liikennettä on tullut Brasiliasta, Kiinasta ja Italiasta.<br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/rosvo1.PNG?raw=true" alt="brazil"><br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/rosvo2.PNG?raw=true" alt="china"><br>
+<img src="https://github.com/nikhuk/linuxpalvelimet/blob/main/assets/h4/rosvo3.PNG?raw=true" alt="Italy"></p>
+<h2 class="code-line" data-line-start=137 data-line-end=138 ><a id="Lhteet_137"></a>Lähteet</h2>
+<ul>
+<li class="has-line-data" data-line-start="139" data-line-end="140"><a href="https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h4">https://terokarvinen.com/2020/linux-palvelimet-2021-alkukevat-kurssi-ict4tn021-3014/#h4</a></li>
+<li class="has-line-data" data-line-start="140" data-line-end="141"><a href="http://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/">http://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/</a></li>
+<li class="has-line-data" data-line-start="141" data-line-end="142"><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-10#step-4-%E2%80%94-setting-up-a-basic-firewall">https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-10#step-4-—-setting-up-a-basic-firewall</a></li>
+<li class="has-line-data" data-line-start="142" data-line-end="143"><a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-10">https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-10</a></li>
+<li class="has-line-data" data-line-start="143" data-line-end="144"><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/">https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/</a></li>
+<li class="has-line-data" data-line-start="144" data-line-end="145"><a href="https://whatismyipaddress.com/ip-lookup">https://whatismyipaddress.com/ip-lookup</a></li>
+<li class="has-line-data" data-line-start="145" data-line-end="146"><a href="https://www.digitalocean.com/community/tutorials/how-to-monitor-system-authentication-logs-on-ubuntu">https://www.digitalocean.com/community/tutorials/how-to-monitor-system-authentication-logs-on-ubuntu</a></li>
+<li class="has-line-data" data-line-start="146" data-line-end="147"><a href="https://www.digitalocean.com/">https://www.digitalocean.com/</a></li>
+<li class="has-line-data" data-line-start="147" data-line-end="148"><a href="https://www.namecheap.com/">https://www.namecheap.com/</a></li>
+</ul>
 </body></html>
